@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/stylesheets/main/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+
+    <div class="registerParent">
+        <div class="registerContent">
+            <div class="registerContainer">
+                <a href="" class="backHome"><i class="bi bi-arrow-bar-left"></i>Geri Dön</a>
+                <h1 class="logo">YOUR <span>LOGO</span></h1>
+                <h5 class="registerTitle">Giriş Yap</h5>
+                <p class="loginLink">Hesabın Yok mu? <a href="http://localhost:3000/users/register">Kayıt Ol</a></p>
+                <div class="teknaAlert">
+                    <div class="teknaAlertContent">
+                        <% if (messages.error) { %>
+                            <div class="alertMessage">
+                                <%= messages.error %>
+                            </div>
+                            <% } %>
+                                <% if (messages.error) { %>
+                                    <div class="alertClose">
+                                        <i class="bi bi-x-circle"></i>
+                                    </div>
+                            <% } %>
+                    </div>
+                </div>
+                <form action="/users/login" class="loginForm" method="POST">
+                    <input type="email" placeholder="Email*" class="loginEmail" name="email">
+                    <input type="password" placeholder="Şifreniz*" class="pass" name="password">
+                    <input type="submit" class="register" value="Giriş Yap">
+                </form>
+
+                <div class="orParent">
+                    <div class="orLeft"></div>
+                    <p>Veya</p>
+                    <div class="orRight"></div>
+                </div>
+                <div class="buttomRegisterButtons">
+                    <a href="" class="googleRegister">
+                        <img width="20" src="../img/googleRegister.png" alt="">
+                        Google İle Giriş Yap
+                    </a>
+                    <a href="" class="facebookRegister">
+                        <img width="20" src="../img/facebookRegister.png" alt="">
+                        Facebook İle Giriş Yap
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="registerCarousel">
+            <div class="owl-carousel">
+                <div class="owlCarouselİtem">
+                    <div class="owlCarouselBack"></div>
+                    <img src="../img/sliderImg.jpg" alt="">
+                    <div class="owlCarouselİtemContent">
+                        <h2>Test Yazısı Başlık Burada</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id commodi a delectus, dolore
+                            necessitatibus corporis ratione quod deleniti suscipit</p>
+                    </div>
+                </div>
+                <div class="owlCarouselİtem">
+                    <img src="../img/sliderImg.jpg" alt="">
+                    <div class="owlCarouselİtemContent">
+                        <h2>Test Yazısı Başlık Burada</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id commodi a delectus, dolore
+                            necessitatibus corporis ratione quod deleniti suscipit</p>
+                    </div>
+                </div>
+                <div class="owlCarouselİtem">
+                    <img src="../img/sliderImg.jpg" alt="">
+                    <div class="owlCarouselİtemContent">
+                        <h2>Test Yazısı Başlık Burada</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id commodi a delectus, dolore
+                            necessitatibus corporis ratione quod deleniti suscipit</p>
+                    </div>
+                </div>
+                <div class="owlCarouselİtem">
+                    <img src="../img/sliderImg.jpg" alt="">
+                    <div class="owlCarouselİtemContent">
+                        <h2>Test Yazısı Başlık Burada</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id commodi a delectus, dolore
+                            necessitatibus corporis ratione quod deleniti suscipit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../script/login.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                items: 1,
+                nav: true,
+                navText: ['<i class="bi bi-arrow-left-short"></i>', '<i class="bi bi-arrow-right-short"></i>'],
+                margin: 10,
+            });
+        });
+    </script>
+</body>
+
+</html>

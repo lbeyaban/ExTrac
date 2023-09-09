@@ -1,0 +1,191 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+body {
+  font-family: 'Ubuntu', sans-serif; }
+
+.loginEmail {
+  width: 100% !important; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.registerParent {
+  display: flex; }
+  .registerParent .registerContent {
+    width: 40%;
+    height: 100vh;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; }
+    .registerParent .registerContent .backHome {
+      box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.1);
+      color: #414141;
+      padding: 1rem;
+      position: absolute;
+      left: 2rem;
+      top: 1rem; }
+      .registerParent .registerContent .backHome i {
+        margin-right: .5rem; }
+    .registerParent .registerContent .logo {
+      color: #414141;
+      margin-top: 2.5rem; }
+      .registerParent .registerContent .logo span {
+        color: #EF505A; }
+    .registerParent .registerContent .registerTitle {
+      color: #414141;
+      margin: 1rem 0 .3rem 0; }
+    .registerParent .registerContent .loginLink {
+      color: #B1B1B1; }
+      .registerParent .registerContent .loginLink a {
+        color: #EF505A; }
+    .registerParent .registerContent form .nameSurname,
+    .registerParent .registerContent form .email,
+    .registerParent .registerContent form .pass,
+    .registerParent .registerContent form .passAgain,
+    .registerParent .registerContent form .loginEmail {
+      height: 2.5rem;
+      background: url("../../img/person.svg") no-repeat scroll 5px 10px;
+      padding-left: 25px;
+      margin-top: 1rem;
+      border: none;
+      border: 1px solid #B1B1B1; }
+      .registerParent .registerContent form .nameSurname:focus,
+      .registerParent .registerContent form .email:focus,
+      .registerParent .registerContent form .pass:focus,
+      .registerParent .registerContent form .passAgain:focus,
+      .registerParent .registerContent form .loginEmail:focus {
+        outline: none;
+        box-shadow: 0px 4px 15px 0px rgba(99, 81, 246, 0.3);
+        border: 1px solid #6351F6; }
+    .registerParent .registerContent form input,
+    .registerParent .registerContent form select {
+      border-radius: 5px; }
+    .registerParent .registerContent form .nameSurname,
+    .registerParent .registerContent form .pass,
+    .registerParent .registerContent form .passAgain {
+      width: 100%; }
+    .registerParent .registerContent form .selectClass,
+    .registerParent .registerContent form .email {
+      width: 49.5%; }
+      @media screen and (max-width: 1080px) {
+        .registerParent .registerContent form .selectClass,
+        .registerParent .registerContent form .email {
+          width: 100%;
+          margin-top: 1rem; } }
+    .registerParent .registerContent form .selectClass {
+      height: 2.5rem;
+      border: 1px solid #B1B1B1;
+      color: #B1B1B1; }
+    .registerParent .registerContent .orParent {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem; }
+      .registerParent .registerContent .orParent .orLeft, .registerParent .registerContent .orParent .orRight {
+        width: 43%;
+        height: 1px;
+        border: 0.5px solid #B1B1B1; }
+      .registerParent .registerContent .orParent p {
+        margin: 1rem;
+        color: #B1B1B1; }
+    .registerParent .registerContent .buttomRegisterButtons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #B1B1B1;
+      text-decoration: none;
+      padding: .7rem 0;
+      margin-top: 1rem;
+      color: #414141;
+      font-weight: bold;
+      border-radius: 25px;
+      transition: .35s; }
+      .registerParent .registerContent .buttomRegisterButtons a img {
+        margin-right: .5rem; }
+      .registerParent .registerContent .buttomRegisterButtons a:hover {
+        background-color: #F88865;
+        color: white; }
+  .registerParent .registerCarousel {
+    width: 60%;
+    height: 100vh;
+    background-color: #6351F6;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .registerParent .registerCarousel .owl-carousel {
+      width: 90%; }
+      .registerParent .registerCarousel .owl-carousel img {
+        border-radius: 10px;
+        z-index: -1; }
+      .registerParent .registerCarousel .owl-carousel .owlCarouselİtem .owlCarouselİtemContent {
+        padding: 2rem;
+        position: absolute;
+        z-index: 999;
+        top: 50%;
+        transform: translate(0, -50%);
+        color: white; }
+        .registerParent .registerCarousel .owl-carousel .owlCarouselİtem .owlCarouselİtemContent p {
+          margin-top: .5rem; }
+      .registerParent .registerCarousel .owl-carousel .owl-nav {
+        position: absolute;
+        top: 52%;
+        padding: 2rem; }
+        .registerParent .registerCarousel .owl-carousel .owl-nav button {
+          width: 40px;
+          height: 40px;
+          background-color: white;
+          color: #EF505A;
+          border-radius: 100%;
+          font-size: 2rem;
+          margin-right: .5rem; }
+        .registerParent .registerCarousel .owl-carousel .owl-nav .disabled {
+          opacity: .5; }
+  .registerParent .register {
+    width: 100%;
+    margin-top: 1rem;
+    height: 2.5rem;
+    background-color: #6351F6;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer; }
+  @media screen and (max-width: 850px) {
+    .registerParent {
+      display: block; }
+      .registerParent .registerCarousel {
+        display: none; }
+      .registerParent .registerContent {
+        width: 100%; }
+        .registerParent .registerContent .registerContainer form {
+          margin-top: .5rem; }
+          .registerParent .registerContent .registerContainer form .nameSurname {
+            margin-top: .5rem !important; }
+          .registerParent .registerContent .registerContainer form .email, .registerParent .registerContent .registerContainer form .selectClass {
+            width: 100% !important; }
+          .registerParent .registerContent .registerContainer form .selectClass {
+            margin-top: 1rem; }
+        .registerParent .registerContent .registerContainer .buttomRegisterButtons .googleRegister {
+          margin-top: .5rem; } }
+
+.teknaAlert {
+  background-color: #EF505A;
+  color: white;
+  margin-top: 1rem;
+  border-radius: .5rem;
+  font-weight: bold;
+  font-size: .8rem; }
+  .teknaAlert .alertMessage, .teknaAlert .alertClose {
+    padding: 1rem; }
+  .teknaAlert .alertClose {
+    cursor: pointer; }
+  .teknaAlert .teknaAlertContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+
+.hideAlert {
+  display: none; }

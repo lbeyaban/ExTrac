@@ -1,0 +1,25 @@
+@import "./variables.scss";
+
+.teknaAlert{
+    background-color: $red;
+    color: white;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    font-weight: bold;
+    font-size: .8rem;
+    .alertMessage,.alertClose{
+        padding: 1rem;
+    }
+    .alertClose{
+        cursor: pointer;
+    }
+    .teknaAlertContent{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.hideAlert{
+    display: none;
+}

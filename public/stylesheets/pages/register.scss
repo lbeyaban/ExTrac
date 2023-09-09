@@ -1,0 +1,218 @@
+@import '../variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.registerParent {
+    display: flex;
+
+    .registerContent {
+        width: 40%;
+        height: 100vh;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        .backHome {
+            box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.10);
+            color: $black;
+            padding: 1rem;
+            position: absolute;
+            left: 2rem;
+            top: 1rem;
+            i{
+                margin-right: .5rem;
+            }
+        }
+        .logo{
+            color: $black;
+            margin-top: 2.5rem;
+            span{
+                color: $red;
+            }
+        }
+        .registerTitle{
+            color: $black;
+            margin: 1rem 0 .3rem 0;
+        }
+        .loginLink{
+            color: $gray;
+            a{
+                color: $red;
+            }
+        }
+        form {
+            .nameSurname,
+            .email,
+            .pass,
+            .passAgain,
+            .loginEmail{
+                height: 2.5rem;
+                background: url("../../img/person.svg") no-repeat scroll 5px 10px;
+                padding-left: 25px;
+                margin-top: 1rem;
+                border: none;
+                border: 1px solid $gray;
+                &:focus{
+                    outline: none;
+                    box-shadow: 0px 4px 15px 0px rgba(99, 81, 246, 0.30);
+                    border: 1px solid $purple;
+
+                }
+            }
+
+            input,
+            select {
+                border-radius: 5px;
+            }
+
+            .nameSurname,
+            .pass,
+            .passAgain {
+                width: 100%;
+            }
+
+            .selectClass,
+            .email {
+                width: 49.5%;
+                @media screen and (max-width:1080px) {
+                    width: 100%;
+                    margin-top: 1rem;
+                }
+            }
+
+            .selectClass {
+                height: 2.5rem;
+                border: 1px solid $gray;
+                color: $gray;
+            }
+        }
+        .orParent{
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            .orLeft,.orRight{
+                width: 43%;
+                height: 1px;
+                border: .5px solid $gray;
+            }
+            p{
+                margin: 1rem;
+                color: $gray;
+            }
+        }
+        .buttomRegisterButtons{
+            a{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid $gray;
+                text-decoration: none;
+                padding: .7rem 0;
+                margin-top: 1rem;
+                color: $black; 
+                font-weight: bold;
+                border-radius: 25px;
+                transition: .35s;
+                img{
+                    margin-right: .5rem;
+                }
+                &:hover{
+                    background-color: $orange;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .registerCarousel {
+        width: 60%;
+        height: 100vh;
+        background-color: $purple;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .owl-carousel{
+            width: 90%;
+            img{
+                border-radius: 10px;
+                z-index: -1;
+            }
+            .owlCarouselİtem{
+                .owlCarouselİtemContent{
+                    padding: 2rem;
+                    position: absolute;
+                    z-index: 999;
+                    top: 50%;
+                    transform: translate(0,-50%);
+                    color: white;
+                    p{
+                        margin-top: .5rem;
+                    }
+                }
+            }
+            .owl-nav{
+                position: absolute;
+                top: 52%;
+                padding: 2rem;
+                button{
+                    width: 40px;
+                    height: 40px;
+                    background-color: white;
+                    color: $red;
+                    border-radius: 100%;
+                    font-size: 2rem;
+                    margin-right: .5rem;
+                }
+                .disabled{
+                    opacity: .5;
+                }
+            }
+        }
+    }
+
+    .register {
+        width: 100%;
+        margin-top: 1rem;
+        height: 2.5rem;
+        background-color: $purple;
+        font-weight: bold;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width:850px) {
+        display: block;     
+        .registerCarousel{
+            display: none;
+        }   
+        .registerContent{
+            width: 100%;
+            .registerContainer{
+                form{
+                    margin-top: .5rem;
+                    .nameSurname{
+                        margin-top: .5rem !important;
+                    }
+                    .email,.selectClass{
+                        width: 100% !important;
+                    }
+                    .selectClass{
+                        margin-top: 1rem;
+                    }
+                }
+                .buttomRegisterButtons{
+                    .googleRegister{
+                        margin-top: .5rem;
+                    }
+                }
+            }
+        }
+    }
+}
