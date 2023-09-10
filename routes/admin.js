@@ -7,7 +7,7 @@ const controller = require('../controller')
 
 
 /* GET users listing. */
-router.get('/',  function (req, res, next) {
+router.get('/', function (req, res, next) {
 
   res.render('admin/index', {
 
@@ -18,7 +18,7 @@ router.get('/',  function (req, res, next) {
 });
 
 
-router.get('/ogrenci-listesi',  function (req, res, next) {
+router.get('/ogrenci-listesi', function (req, res, next) {
 
   res.render('admin/ogrenciler', {
 
@@ -28,16 +28,41 @@ router.get('/ogrenci-listesi',  function (req, res, next) {
 
 });
 
-router.get('/ders-listesi',  function (req, res, next) {
+router.get('/ders-listesi', async function (req, res, next) {
 
-  res.render('admin/dersler', {
+  await controller.adminController.dersListesi(req, res, next)
 
-    title: "Ders Listesi"
+});
+
+router.get('/ders-ekle', function (req, res, next) {
+
+  res.render('admin/ders-ekle', {
+
+    title: "Ders Ekleme Sayfasi"
 
   })
 
 });
 
+router.get('/ogretmen-ekle', function (req, res, next) {
+
+  res.render('admin/ogretmen-ekle', {
+
+    title: "Ogretmen Ekleme Sayfasi"
+
+  })
+
+});
+
+
+
+/* POST users listing. */
+
+router.post('/ders-ekle', async function (req, res, next) {
+
+  await controller.adminController.dersEkle(req, res, next)
+
+});
 
 
 

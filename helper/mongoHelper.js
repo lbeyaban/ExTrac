@@ -177,5 +177,45 @@ module.exports = {
 
     },
 
+    getByCollection: async (databaseName, collectionName) => {
+
+        return new Promise(async (resolve, reject) => {
+
+            let documents = null;
+
+            const uri = 'mongodb://0.0.0.0:27017';
+
+            let client = new MongoClient(uri);
+
+            try {
+
+                await client.connect();
+
+                const database = client.db(databaseName);
+
+                const collection = database.collection(collectionName);
+
+                documents = await collection.find({}).toArray();
+
+                client.close();
+
+            } catch (err) {
+
+                resolve(await responseHelper.resParser({
+                    'error': 1,
+                    'messages': err.message
+                }));
+
+            }
+
+            if (documents)
+                resolve(documents);
+            else
+                resolve(false);
+
+        });
+
+    },
+
 
 }
