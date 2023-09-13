@@ -6,13 +6,14 @@
     <meta charset="utf-8">
     <meta name="author" content="Softnio">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description"
-        content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
     <title><%= title %></title>
     <!-- StyleSheets  -->
+
+    <link rel="stylesheet" href="/stylesheets/main/main.css">
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.2.0">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.2.0">
 </head>
@@ -34,63 +35,39 @@
                 </div>
                 <!-- main header @e -->
                 <!-- content @s -->
-
+                
                 <div class="nk-content ">
-
+                    
                     <div class="nk-block nk-block-lg">
                         <div class="nk-block-head">
                             <div class="nk-block-head-content">
-                                <h4 class="title nk-block-title">Öğretmen Ekleme Sayfası</h4>
+                                <h4 class="title nk-block-title">Konu Ekleme Sayfası</h4>
                                 <div class="nk-block-des">
-                                    <p>İstediginiz öğretmeni buradan ekleyebilirsiniz.</p>
+                                    <p>Istediginiz konuyu buradan ekleyebilirsiniz.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-inner">
                                 <div class="card-head">
-                                    <h5 class="card-title">Öğretmen Ekle</h5>
+                                    <h5 class="card-title">Konu Ekle</h5>
                                 </div>
-                                <form action="/admin/ogretmen-ekle" method="POST">
+                                        
+                                <% include partial/alerts.ejs %>               
+                                
+                                <form action="/admin/konu-ekle" method="POST">
+
                                     <div class="row g-4">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-label" for="full-name-1">Ad - Soyad</label>
-                                                <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="full-name-1"
-                                                        name="adSoyad">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-label" for="email-address-1">E-Mail</label>
-                                                <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="email-address-1"
-                                                        name="email">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-label" for="email-address-1">GSM</label>
-                                                <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="email-address-1"
-                                                        name="gsm">
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                        
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label class="form-label">Verdiği Dersler</label>
+                                                <label class="form-label">Dersler</label>
                                                 <div class="form-control-wrap">
                                                     <select class="form-select js-select2" multiple="multiple"
-                                                        data-placeholder="Dersleri Seçiniz" name="verdigiDersler">
+                                                        data-placeholder="Dersleri Seçiniz" name="dersler">
                                                         <% dersler.forEach(function(ders) { %>
 
-                                                            <option value="<%= ders.dersAdi %>"><%= ders.dersAdi %></option>
+                                                            <option value="<%= ders._id %>"><%= ders.dersAdi %></option>
 
                                                         <% }); %>
                                                     </select>
@@ -98,66 +75,18 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label class="form-label">Sözleşme Başlangıç Tarihi</label>
-                                                <div class="form-control-wrap">
-                                                    <div class="form-icon form-icon-left">
-                                                        <em class="icon ni ni-calendar"></em>
-                                                    </div>
-                                                    <input type="text" class="form-control date-picker" data-date-format="yyyy-mm-dd" name="sozlesmeBaslangic">
-                                                </div>
-                                                <div class="form-note">Tarih Formatı <code>yyyy-mm-dd</code></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label class="form-label">Sözleşme Bitiş Tarihi</label>
-                                                <div class="form-control-wrap">
-                                                    <div class="form-icon form-icon-left">
-                                                        <em class="icon ni ni-calendar"></em>
-                                                    </div>
-                                                    <input type="text" class="form-control date-picker" data-date-format="yyyy-mm-dd" name="sozlesmeBitis">
-                                                </div>
-                                                <div class="form-note">Tarih Formatı <code>yyyy-mm-dd</code></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <label class="form-label" for="customFileLabel">Diploma</label>
-                                            <div class="form-control-wrap">
-                                                <div class="form-file">
-                                                    <input type="file" class="form-file-input" id="customFile" name="diploma">
-                                                    <label class="form-file-label" for="customFile">Dosya Seçiniz</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-label">Cinsiyet</label>
-                                                <ul class="custom-control-group g-3 align-center flex-wrap">
-                                                    <li>
-                                                        <div class="custom-control custom-radio">
-                                                            <input type="radio" class="custom-control-input" checked name="cinsiyet" id="reg-enable" value="Erkek">
-                                                            <label class="custom-control-label" for="reg-enable">Erkek</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-radio">
-                                                            <input type="radio" class="custom-control-input" name="cinsiyet" id="reg-disable" value="Kadın">
-                                                            <label class="custom-control-label" for="reg-disable">Kadın</label>
-                                                        </div>
-                                                    </li>
-                                                </ul>
+                                                <label class="form-label" for="email-address-1">Eklenecek Konular</label>
+                                                <div class="form-control-wrap">
+                                                    <input type="text" class="form-control" id="email-address-1" name="konular">
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-lg btn-primary">Öğretmen Ekle</button>
+                                                <button type="submit" class="btn btn-lg btn-primary">Konu Ekle</button>
                                             </div>
                                         </div>
                                     </div>
@@ -169,11 +98,11 @@
 
 
                 </div>
-
+                
 
                 <!-- content @e -->
                 <!-- footer @s -->
-
+                
                 <% include partial/footer.ejs %>
 
                 <!-- footer @e -->

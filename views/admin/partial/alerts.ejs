@@ -1,5 +1,5 @@
 <% if (flashSuccess != "") { %>
-    <div class="example-alert">
+    <div class="example-alert" style="margin-bottom: 10px;">
         <div class="alert alert-fill alert-success alert-icon">
             <em class="icon ni ni-check-circle"></em> <%= flashSuccess %>
         </div>
@@ -9,7 +9,7 @@
 
 <% if (flashError != "") { %>
 
-    <div class="example-alert">
+    <div class="example-alert" style="margin-bottom: 10px;">
         <div class="alert alert-fill alert-danger alert-dismissible alert-icon">
             <em class="icon ni ni-cross-circle"></em>  <%= flashError %> <button class="close" data-bs-dismiss="alert"></button>
         </div>

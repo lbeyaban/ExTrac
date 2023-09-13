@@ -44,13 +44,15 @@ router.get('/ders-ekle', function (req, res, next) {
 
 });
 
-router.get('/ogretmen-ekle', function (req, res, next) {
+router.get('/ogretmen-ekle', async function (req, res, next) {
 
-  res.render('admin/ogretmen-ekle', {
+  await controller.adminController.getOgretmenEkle(req, res, next)
 
-    title: "Ogretmen Ekleme Sayfasi"
+});
 
-  })
+router.get('/konu-ekle', async function (req, res, next) {
+
+  await controller.adminController.getKonuEkle(req, res, next)
 
 });
 
@@ -65,6 +67,17 @@ router.post('/ders-ekle', async function (req, res, next) {
 });
 
 
+router.post('/ogretmen-ekle', async function (req, res, next) {
+
+  await controller.adminController.ogretmenEkle(req, res, next)
+
+});
+
+router.post('/konu-ekle', async function (req, res, next) {
+
+  await controller.adminController.konuEkle(req, res, next)
+
+});
 
 
 

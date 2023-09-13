@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta name="author" content="Softnio">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <meta name="description"
+        content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
@@ -14,6 +15,62 @@
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.2.0">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.2.0">
+    <script>
+        let konular = []
+
+        function yeniButonOlustur() {
+            const yeniDersKonuDiv = document.createElement("div");
+            yeniDersKonuDiv.className = "d-flex gx-3 mb-3";
+
+            const inputDiv = document.createElement("div");
+            inputDiv.className = "g w-100";
+            const inputElement = document.createElement("input");
+            inputElement.type = "text";
+            inputElement.className = "form-control";
+            inputElement.name = "konular";
+            inputElement.id = "inputElement_" + Math.floor(Math.random() * 1000);
+
+            // Yeni butonu oluşturun ve id'yi rastgele yapın
+            const buttonDiv = document.createElement("div");
+            const buttonElement = document.createElement("button");
+            buttonElement.type = "button";
+            buttonElement.className = "btn btn-icon btn-outline-light";
+            buttonElement.id = "konuEklemeButonu_" + Math.floor(Math.random() * 1000); // Rastgele id
+            const iconElement = document.createElement("em");
+            iconElement.className = "icon ni ni-plus";
+
+            // Oluşturulan elementleri birbirine bağlayın
+            buttonElement.appendChild(iconElement);
+            buttonDiv.appendChild(buttonElement);
+            inputDiv.appendChild(inputElement);
+            yeniDersKonuDiv.appendChild(inputDiv);
+            yeniDersKonuDiv.appendChild(buttonDiv);
+
+            konularListesi.appendChild(yeniDersKonuDiv);
+
+            // Yeni butona click eventi ekleyin
+            buttonElement.addEventListener("click", function () {
+
+                yeniButonOlustur()
+
+            });
+
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            //Butonu Aldık
+            var konuEklemeButonu = document.getElementById("konuEklemeButonu");
+            const konuInput = document.getElementById("konu")
+            const konularListesi = document.getElementById("konularListesi")
+
+            yeniButonOlustur()
+
+            //Buton üzerine click eventi atatık
+
+        });
+    </script>
 </head>
 
 <body class="nk-body bg-lighter npc-general has-sidebar ">
@@ -21,7 +78,7 @@
         <!-- main @s -->
         <div class="nk-main ">
             <!-- sidebar @s -->
-             
+
             <% include partial/sol-bar.ejs %>
 
             <!-- sidebar @e -->
@@ -45,26 +102,40 @@
                                         </div><!-- .nk-block-head-content -->
                                         <div class="nk-block-head-content">
                                             <div class="toggle-wrap nk-block-tools-toggle">
-                                                <a href="#" class="btn btn-icon btn-trigger toggle-expand me-n1" data-target="pageMenu"><em class="icon ni ni-menu-alt-r"></em></a>
+                                                <a href="#" class="btn btn-icon btn-trigger toggle-expand me-n1"
+                                                    data-target="pageMenu"><em class="icon ni ni-menu-alt-r"></em></a>
                                                 <div class="toggle-expand-content" data-content="pageMenu">
                                                     <ul class="nk-block-tools g-3">
                                                         <li>
                                                             <div class="drodown">
-                                                                <a href="#" class="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-bs-toggle="dropdown"><em class="d-none d-sm-inline icon ni ni-filter-alt"></em><span>Filtered By</span><em class="dd-indc icon ni ni-chevron-right"></em></a>
+                                                                <a href="#"
+                                                                    class="dropdown-toggle btn btn-white btn-dim btn-outline-light"
+                                                                    data-bs-toggle="dropdown"><em
+                                                                        class="d-none d-sm-inline icon ni ni-filter-alt"></em><span>Filtered
+                                                                        By</span><em
+                                                                        class="dd-indc icon ni ni-chevron-right"></em></a>
                                                                 <div class="dropdown-menu dropdown-menu-end">
                                                                     <ul class="link-list-opt no-bdr">
-                                                                        <li><a href="#"><span>Web Development</span></a></li>
-                                                                        <li><a href="#"><span>Mobile Application</span></a></li>
-                                                                        <li><a href="#"><span>Graphics Design</span></a></li>
+                                                                        <li><a href="#"><span>Web Development</span></a>
+                                                                        </li>
+                                                                        <li><a href="#"><span>Mobile
+                                                                                    Application</span></a></li>
+                                                                        <li><a href="#"><span>Graphics Design</span></a>
+                                                                        </li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
                                                         </li>
                                                         <li class="nk-block-tools-opt d-none d-sm-block">
-                                                            <a class="btn btn-primary" data-bs-toggle="modal" href="#modalCreate"><em class="icon ni ni-plus"></em><span>Add Category</span></a>
+                                                            <a class="btn btn-primary" data-bs-toggle="modal"
+                                                                href="#modalCreate"><em
+                                                                    class="icon ni ni-plus"></em><span>Ders
+                                                                    Ekle</span></a>
                                                         </li>
                                                         <li class="nk-block-tools-opt d-block d-sm-none">
-                                                            <a class="btn btn-icon btn-primary" data-bs-toggle="modal" href="#modalCreate"><em class="icon ni ni-plus"></em></a>
+                                                            <a class="btn btn-icon btn-primary" data-bs-toggle="modal"
+                                                                href="#modalCreate"><em
+                                                                    class="icon ni ni-plus"></em></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -72,6 +143,8 @@
                                         </div><!-- .nk-block-head-content -->
                                     </div><!-- .nk-block-between -->
                                 </div><!-- .nk-block-head -->
+
+                                <% include partial/alerts.ejs %>
                                 <div class="nk-block">
                                     <div class="row g-gs">
 
@@ -81,7 +154,8 @@
                                             <div class="card h-100">
                                                 <div class="card-inner">
                                                     <div class="d-flex justify-content-between align-items-start mb-3">
-                                                        <a href="html/lms/courses.html" class="d-flex align-items-center">
+                                                        <a href="html/lms/courses.html"
+                                                            class="d-flex align-items-center">
                                                             <div class="user-avatar sq bg-purple"><span>GD</span></div>
                                                             <div class="ms-3">
                                                                 <h6 class="title mb-1"><%= ders.dersAdi %></h6>
@@ -89,11 +163,20 @@
                                                             </div>
                                                         </a>
                                                         <div class="dropdown">
-                                                            <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 me-n1" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                            <a href="#"
+                                                                class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 me-n1"
+                                                                data-bs-toggle="dropdown"><em
+                                                                    class="icon ni ni-more-h"></em></a>
                                                             <div class="dropdown-menu dropdown-menu-end">
                                                                 <ul class="link-list-opt no-bdr">
-                                                                    <li><a data-bs-toggle="modal" href="#modalEdit"><em class="icon ni ni-edit"></em><span>Edit Category</span></a></li>
-                                                                    <li><a data-bs-toggle="modal" href="#modalDelete"><em class="icon ni ni-delete"></em><span>Delete Category</span></a></li>
+                                                                    <li><a data-bs-toggle="modal" href="#modalEdit"
+                                                                            id="dersiDuzenle"><em
+                                                                                class="icon ni ni-edit"></em><span>Dersi
+                                                                                Düzenle</span></a></li>
+                                                                    <li><a data-bs-toggle="modal"
+                                                                            href="#modalDelete"><em
+                                                                                class="icon ni ni-delete"></em><span>Dersi
+                                                                                Sil</span></a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -101,13 +184,14 @@
                                                     <p><%= ders.dersAciklamasi %></p>
                                                     <ul class="d-flex flex-wrap g-1">
                                                         <% ders.dersiAlabilenSiniflar.forEach(function(alabilenler){ %>
-                                                            <li><span class="badge badge-dim bg-primary"> <%= alabilenler %></span></li>
-                                                        <% }); %>                                                      
+                                                        <li><span class="badge badge-dim bg-primary">
+                                                                <%= alabilenler %></span></li>
+                                                        <% }); %>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
 
                                         <% }); %>
 
@@ -119,7 +203,7 @@
                 </div>
                 <!-- content @e -->
                 <!-- footer @s -->
-                
+
                 <% include partial/footer.ejs %>
 
 
@@ -130,197 +214,89 @@
         <!-- main @e -->
     </div>
     <!-- app-root @e -->
-    <!-- select region modal -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="region">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
-                <div class="modal-body modal-body-md">
-                    <h5 class="title mb-4">Select Your Country</h5>
-                    <div class="nk-country-region">
-                        <ul class="country-list text-center gy-2">
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/arg.png" alt="" class="country-flag">
-                                    <span class="country-name">Argentina</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/aus.png" alt="" class="country-flag">
-                                    <span class="country-name">Australia</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/bangladesh.png" alt="" class="country-flag">
-                                    <span class="country-name">Bangladesh</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/canada.png" alt="" class="country-flag">
-                                    <span class="country-name">Canada <small>(English)</small></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/china.png" alt="" class="country-flag">
-                                    <span class="country-name">Centrafricaine</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/china.png" alt="" class="country-flag">
-                                    <span class="country-name">China</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/french.png" alt="" class="country-flag">
-                                    <span class="country-name">France</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/germany.png" alt="" class="country-flag">
-                                    <span class="country-name">Germany</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/iran.png" alt="" class="country-flag">
-                                    <span class="country-name">Iran</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/italy.png" alt="" class="country-flag">
-                                    <span class="country-name">Italy</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/mexico.png" alt="" class="country-flag">
-                                    <span class="country-name">México</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/philipine.png" alt="" class="country-flag">
-                                    <span class="country-name">Philippines</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/portugal.png" alt="" class="country-flag">
-                                    <span class="country-name">Portugal</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/s-africa.png" alt="" class="country-flag">
-                                    <span class="country-name">South Africa</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/spanish.png" alt="" class="country-flag">
-                                    <span class="country-name">Spain</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/switzerland.png" alt="" class="country-flag">
-                                    <span class="country-name">Switzerland</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/uk.png" alt="" class="country-flag">
-                                    <span class="country-name">United Kingdom</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/english.png" alt="" class="country-flag">
-                                    <span class="country-name">United State</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div><!-- .modal-content -->
-        </div><!-- .modla-dialog -->
-    </div><!-- .modal -->
+
     <!-- @@ Category Modal @e -->
-    <div class="modal fade" id="modalCreate">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <a href="#" class="close" data-bs-dismiss="modal" aria-label="Close"> <em class="icon ni ni-cross-sm"></em></a>
-                <div class="modal-body modal-body-md">
-                    <h5 class="title">Add Category</h5>
-                    <form action="#" class="pt-2">
-                        <div class="form-group">
-                            <label class="form-label" for="full-name">Category Name</label>
-                            <div class="form-control-wrap">
-                                <input type="text" class="form-control" id="full-name" placeholder="e.g. Web Development">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="description">Description</label>
-                            <div class="form-control-wrap">
-                                <textarea class="form-control" name="description" id="description" placeholder="Write Category Description"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="thumb">Category thumbnail</label>
-                            <div class="form-control-wrap">
-                                <div class="form-file">
-                                    <input type="file" multiple class="form-file-input" id="customFile">
-                                    <label class="form-file-label" for="thumb">Choose file</label>
+    <form action="/admin/ders-ekle" method="POST">
+        <div class="modal fade" id="modalCreate">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <a href="#" class="close" data-bs-dismiss="modal" aria-label="Close"> <em
+                            class="icon ni ni-cross-sm"></em></a>
+                    <div class="modal-body modal-body-md">
+                        <h5 class="title">Ders Ekle</h5>
+                        <form action="#" class="pt-2">
+                            <div class="form-group">
+                                <label class="form-label" for="full-name">Ders Adı</label>
+                                <div class="form-control-wrap">
+                                    <input type="text" class="form-control" id="full-name" name="dersAdi">
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Subcategory</label>
-                            <div class="d-flex gx-3 mb-3">
-                                <div class="g w-100">
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" placeholder="e.g. Web Development">
+                            <div class="form-group">
+                                <label class="form-label" for="description">Ders Açıklaması</label>
+                                <div class="form-control-wrap">
+                                    <textarea class="form-control" name="dersAciklamasi" id="description"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Dersi Alabilecek Sınıflar</label>
+                                <div class="form-control-wrap">
+                                    <select class="form-select js-select2" multiple="multiple"
+                                        data-placeholder="Dersleri Seçiniz" name="dersiAlabilenSiniflar">
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="Mezun">Mezun</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group" id="konularListesi">
+                                <label class="form-label">Ders Konuları</label>
+                                <!-- <div class="d-flex gx-3 mb-3">
+                                    <div class="g w-100">
+                                        <div class="form-control-wrap">
+                                            <input type="text" class="form-control" name="konular" id="konu">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="g">
-                                    <button class="btn btn-icon btn-outline-light"><em class="icon ni ni-plus"></em></button>
-                                </div>
+                                    <div class="g">
+                                        <button type="button" class="btn btn-icon btn-outline-light"
+                                            id="konuEklemeButonu">
+                                            <em class="icon ni ni-plus"></em></button>
+                                    </div>
+                                </div> -->
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <button data-bs-dismiss="modal" type="submit" class="btn btn-primary">Save Informations</button>
-                        </div>
-                    </form>
+                            <div class="form-group">
+                                <button data-bs-dismiss="modal" type="submit" class="btn btn-primary">Dersi
+                                    Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
     <!-- .Edit Modal-Content -->
     <div class="modal fade" id="modalEdit">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <a href="#" class="close" data-bs-dismiss="modal" aria-label="Close"> <em class="icon ni ni-cross-sm"></em></a>
+                <a href="#" class="close" data-bs-dismiss="modal" aria-label="Close"> <em
+                        class="icon ni ni-cross-sm"></em></a>
                 <div class="modal-body modal-body-md">
-                    <h5 class="title">Edit Category</h5>
+                    <h5 class="title">Dersi Düzenle</h5>
                     <form action="#" class="pt-2">
                         <div class="form-group">
-                            <label class="form-label" for="edit-full-name">Category Name</label>
+                            <label class="form-label" for="edit-full-name">Dersi Düzenle</label>
                             <div class="form-control-wrap">
-                                <input type="text" class="form-control" id="edit-full-name" value="Web Development">
+                                <input type="text" class="form-control" id="edit-full-name" value="">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="edit-description">Description</label>
+                            <label class="form-label" for="edit-description">Ders Açıklaması</label>
                             <div class="form-control-wrap">
-                                <textarea class="form-control" name="description" id="edit-description" value="Website Design & Develop the website with web applications"></textarea>
+                                <textarea class="form-control" name="description" id="edit-description"
+                                    value=""></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -380,26 +356,31 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <button data-bs-dismiss="modal" type="submit" class="btn btn-primary">Save Informations</button>
+                            <button data-bs-dismiss="modal" type="submit" class="btn btn-primary">Save
+                                Informations</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- .Edit Modal-Content -->
     <div class="modal fade" id="modalDelete">
         <div class="modal-dialog" role="document">
-            <div class="modal-content"> <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+            <div class="modal-content"> <a href="#" class="close" data-bs-dismiss="modal"><em
+                        class="icon ni ni-cross-sm"></em></a>
                 <div class="modal-body modal-body-lg text-center">
-                    <div class="nk-modal py-4"> <em class="nk-modal-icon icon icon-circle icon-circle-xxl ni ni-cross bg-danger"></em>
+                    <div class="nk-modal py-4"> <em
+                            class="nk-modal-icon icon icon-circle icon-circle-xxl ni ni-cross bg-danger"></em>
                         <h4 class="nk-modal-title">Are You Sure ?</h4>
                         <div class="nk-modal-text mt-n2">
                             <p class="text-soft">This event data will be removed permanently.</p>
                         </div>
                         <ul class="d-flex justify-content-center gx-4 mt-4">
                             <li>
-                                <button data-bs-dismiss="modal" id="deleteEvent" class="btn btn-success">Yes, Delete it</button>
+                                <button data-bs-dismiss="modal" id="deleteEvent" class="btn btn-success">Yes, Delete
+                                    it</button>
                             </li>
                             <li>
                                 <button data-bs-dismiss="modal" class="btn btn-danger btn-dim">Cancel</button>
